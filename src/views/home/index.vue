@@ -3,7 +3,7 @@
 		<mt-field label="员工编号" placeholder="请输入员工编号" v-model="form.employeeID" class="required"></mt-field>
 		<mt-field label="员工姓名" placeholder="请输入员工姓名" v-model="form.name" class="required"></mt-field>
 		<mt-field label="身份证号" placeholder="请输入身份证号" v-model="form.IDNumber" class="required" readonly disableClear></mt-field>
-		<mt-radio title="性别" v-model="form.sex" :options="sexOptions" class="required"></mt-radio>
+		<!--<mt-radio title="性别" v-model="form.sex" :options="sexOptions" class="required"></mt-radio>-->
 		<mt-field label="联系方式" placeholder="请输入联系方式" v-model="form.phone" class="required"></mt-field>
 		<mt-field label="所属部门" placeholder="请选择部门" disableClear v-model="form.department" readonly
 		    @click.native="handleClickDepartment" class="required">
@@ -15,40 +15,41 @@
 		    @click.native="handleClickEntryDate" class="required">
 		</mt-field>
 		<mt-datetime-picker
-			ref="entryDatePicker"
-			v-model="entryDate"
-		  	type="date"
-		  	:startDate="new Date('1979-01-01')"
-		  	:endDate="new Date()"
-		  	year-format="{value} 年"
-		  	month-format="{value} 月"
-		  	date-format="{value} 日"
-		  	@confirm="handleEntryDateConfirm">
-		</mt-datetime-picker>
-		<mt-field label="出生日期" placeholder="请选择出生日期" disableClear v-model="form.birthDate" readonly
-		    @click.native="handleClickBirthDate" class="required">
-		</mt-field>
-		<mt-datetime-picker
-			ref="birthDatePicker"
-			v-model="birthDate"
-		  	type="date"
-		  	:startDate="new Date('1950-01-01')"
-		  	:endDate="new Date()"
-		  	year-format="{value} 年"
-		  	month-format="{value} 月"
-		  	date-format="{value} 日"
-		  	@confirm="handleBirthDateConfirm">
-		</mt-datetime-picker>
+    ref="entryDatePicker"
+    v-model="entryDate"
+    type="date"
+    :startDate="new Date('1979-01-01')"
+    :endDate="new Date()"
+    year-format="{value} 年"
+    month-format="{value} 月"
+    date-format="{value} 日"
+    @confirm="handleEntryDateConfirm">
+  </mt-datetime-picker>
+		<!--<mt-field label="出生日期" placeholder="请选择出生日期" disableClear v-model="form.birthDate" readonly-->
+		    <!--@click.native="handleClickBirthDate" class="required">-->
+		<!--</mt-field>-->
+		<!--<mt-datetime-picker-->
+			<!--ref="birthDatePicker"-->
+			<!--v-model="birthDate"-->
+		  	<!--type="date"-->
+		  	<!--:startDate="new Date('1950-01-01')"-->
+		  	<!--:endDate="new Date()"-->
+		  	<!--year-format="{value} 年"-->
+		  	<!--month-format="{value} 月"-->
+		  	<!--date-format="{value} 日"-->
+		  	<!--@confirm="handleBirthDateConfirm">-->
+		<!--</mt-datetime-picker>-->
 		<mt-field label="学历" placeholder="请选择学历" disableClear v-model="form.education" readonly @click.native="handleClickEducation"></mt-field>
 		<mt-popup v-model="educationVisible" position="bottom">
 		  	<mt-picker :slots="educationSlots" :visibleItemCount="7" @change="handleEducationChange"></mt-picker>
 		</mt-popup>
 		<mt-radio title="婚否" v-model="form.marriage" :options="yesNoOptions"></mt-radio>
-		<mt-field label="年龄(岁)" placeholder="根据出生日期自动获取" v-model="form.age" readonly disableClear class="required"></mt-field>
-		<mt-field label="工龄(年)" placeholder="根据入职日期自动获取" v-model="form.workingYears" readonly disableClear class="required"></mt-field>
+		<!--<mt-field label="年龄(岁)" placeholder="根据出生日期自动获取" v-model="form.age" readonly disableClear class="required"></mt-field>-->
+		<!--<mt-field label="工龄(年)" placeholder="根据入职日期自动获取" v-model="form.workingYears" readonly disableClear class="required"></mt-field>-->
 		<mt-radio title="是否双职工" v-model="form.workingCouple" :options="yesNoOptions"></mt-radio>
 		<mt-field label="职务" placeholder="请输入职务" v-model="form.job"></mt-field>
-		<mt-field label="居住宿舍区" placeholder="请选择宿舍" disableClear v-model="form.dormitory" readonly @click.native="handleClickDormitory" class="required"></mt-field>
+		<mt-field label="居住宿舍区" placeholder="请选择宿舍" disableClear v-model="form.dormitory" readonly class="required"></mt-field>
+    <!-- @click.native="handleClickDormitory"-->
 		<mt-popup v-model="dormitoryVisible" position="bottom">
 		  	<mt-picker :slots="dormitorySlots" :visibleItemCount="7" @change="handleDormitoryChange" valueKey="name"></mt-picker>
 		</mt-popup>
@@ -106,18 +107,18 @@
 					employeeID: '',
 					name: '',
 					IDNumber: '',
-					sex: '',
+//					sex: '',
 					phone: '',
 					department: '',
 					entryDate: '',
-					birthDate: '',
+//					birthDate: '',
 					education: '',
 					marriage: '',
-					age: '',
-					workingYears: '',
+//					age: '',
+//					workingYears: '',
 					workingCouple: '',
 					job: '',
-					dormitory: '',
+					dormitory: '怡馨园',
 					building: '',
 					unit: '',
 					floor: '',
@@ -125,13 +126,13 @@
 					moveInDate: '',
 					moveOutDate: ''
 				},
-				sexOptions: [{
-					label: '男',
-					value: '1'
-				}, {
-					label: '女',
-					value: '0'
-				}],
+//				sexOptions: [{
+//					label: '男',
+//					value: '1'
+//				}, {
+//					label: '女',
+//					value: '0'
+//				}],
 				departmentSlots: [{
 		          flex: 1,
 		          defaultIndex: 0,
@@ -149,7 +150,7 @@
 		        }],
 		        educationVisible: false,
 		        entryDate: '',
-		        birthDate: '',
+//		        birthDate: '',
 				moveInDate: '',
 				moveOutDate: '',
 		        yesNoOptions: [{
@@ -236,106 +237,105 @@
 								}
 							})
 							 Promise.resolve().then(function(){
-							 // 宿舍区
-               						return	vm.getArea(0).then(res => {
-               							console.log('宿舍区')
-               								vm.dormitorySlots[0].values = res
-               								let code = info.dormitory
-               								res.some((item, index) => {
-               									if (item.code === code) {
-               										vm.form.dormitory = item.name
-               										vm.dormitorySlots[0].defaultIndex = index
-               										return true
-               									} else {
-               										return false
-               									}
-               								})
+							    // 宿舍区
+                  return	vm.getArea(0).then(res => {
+                    console.log('宿舍区')
+                      vm.dormitorySlots[0].values = res
+                      let code = info.dormitory
+                      res.some((item, index) => {
+                        if (item.code === code) {
+                          vm.form.dormitory = item.name
+                          vm.dormitorySlots[0].defaultIndex = index
+                          return true
+                        } else {
+                          return false
+                        }
+                      })
 
-               							})
+                    })
                   })
                   .then(function(a){
-                       // 楼栋
-                       							return	vm.getArea(info.dormitory).then(res => {
-                       								console.log('楼栋')
-                       									vm.buildingSlots[0].values = res
-                       									let code = info.building
-                       									res.some((item, index) => {
-                       										if (item.code === code) {
-                       											vm.form.building = item.name
-                       											vm.buildingSlots[0].defaultIndex = index
-                       											return true
-                       										} else {
-                       											return false
-                       										}
-                       									})
+                     // 楼栋
+                    return	vm.getArea(info.dormitory).then(res => {
+                      console.log('楼栋')
+                        vm.buildingSlots[0].values = res
+                        let code = info.building
+                        res.some((item, index) => {
+                          if (item.code === code) {
+                            vm.form.building = item.name
+                            vm.buildingSlots[0].defaultIndex = index
+                            return true
+                          } else {
+                            return false
+                          }
+                        })
 
-                       								})
+                      })
                   })
                   .then(function(){
                       // 单元
-                      							return	vm.getArea(info.building).then(res => {
-                      								console.log('单元')
-                      									vm.unitSlots[0].values = res
-                      									let code = info.unit
-                      									res.some((item, index) => {
-                      										if (item.code === code) {
-                      											vm.form.unit = item.name
-                      											vm.unitSlots[0].defaultIndex = index
-                      											return true
-                      										} else {
-                      											return false
-                      										}
-                      									})
-
-                      								})
+                      return	vm.getArea(info.building).then(res => {
+                        console.log('单元')
+                          vm.unitSlots[0].values = res
+                          let code = info.unit
+                          res.some((item, index) => {
+                            if (item.code === code) {
+                              vm.form.unit = item.name
+                              vm.unitSlots[0].defaultIndex = index
+                              return true
+                            } else {
+                              return false
+                            }
+                          })
+                        })
                   })
                   .then(function(){
                     // 楼层
-                    							return	vm.getArea(info.unit).then(res => {
-                    								console.log('楼层')
-                    									vm.floorSlots[0].values = res
-                    									let code = info.floor
-                    									res.some((item, index) => {
-                    										if (item.code === code) {
-                    											vm.form.floor = item.name
-                    											vm.floorSlots[0].defaultIndex = index
-                    											return true
-                    										} else {
-                    											return false
-                    										}
-                    									})
+                    return	vm.getArea(info.unit).then(res => {
+                      console.log('楼层')
+                        vm.floorSlots[0].values = res
+                        let code = info.floor
+                        res.some((item, index) => {
+                          if (item.code === code) {
+                            vm.form.floor = item.name
+                            vm.floorSlots[0].defaultIndex = index
+                            return true
+                          } else {
+                            return false
+                          }
+                        })
 
-                    								})
+                      })
                    }).then(function(){
-                     // 房间号
-                      							return	vm.getArea(info.floor).then(res => {
-                      								console.log('房间号')
-                      									vm.houseSlots[0].values = res
-                      									let code = info.room
-                      									res.some((item, index) => {
-                      										if (item.code === code) {
-                      											vm.form.house = item.name
-                      											vm.houseSlots[0].defaultIndex = index
-                      											return true
-                      										} else {
-                      											return false
-                      										}
-                      									})
+                      // 房间号
+                      return	vm.getArea(info.floor).then(res => {
+                        console.log('房间号')
+                          vm.houseSlots[0].values = res
+                          let code = info.room
+                          res.some((item, index) => {
+                            if (item.code === code) {
+                              vm.form.house = item.name
+                              vm.houseSlots[0].defaultIndex = index
+                              return true
+                            } else {
+                              return false
+                            }
+                          })
 
-                      								})
+                        })
                    })
 
 
-							vm.form.age = info.age
-							vm.form.birthDate = info.birthdate
-							vm.birthDate = info.birthdate
+//							vm.form.age = info.age
+//							vm.form.birthDate = info.birthdate
+//							vm.birthDate = info.birthdate
 							vm.form.IDNumber = info.cardId
 							vm.form.moveInDate = info.checkDate
 							vm.moveInDate = info.checkDate
 							vm.form.education = info.education
 							vm.form.name = info.employeeName
 							vm.form.employeeID = info.employeeNumber
-							vm.form.sex = info.gender.toString()
+//							vm.form.sex = info.gender.toString()
 							vm.form.entryDate = info.hiredate
 							vm.entryDate = info.hiredate
 							vm.form.marriage = info.marriage ? info.marriage.toString() : ''
@@ -345,21 +345,16 @@
 							vm.form.moveOutDate = retireTime || ''
 							vm.moveOutDate = retireTime || ''
 							vm.form.workingCouple = info.workingCouple ? info.workingCouple.toString() : ''
-							vm.form.workingYears = info.workingYears
+//							vm.form.workingYears = info.workingYears
 							vm.form.dormitory = info.dormitory
-//							vm.$nextTick(() => {
-//								vm.form.building = info.building
-//							vm.form.unit = info.unit
-//							vm.form.floor = info.floor
-//							vm.form.house = info.room
-//							})
 						} else {
 							vm.form.IDNumber = id
 							vm.getDepartmentOptions()
 
 							vm.getArea(0).then((res) => {
 								vm.dormitorySlots[0].values = res
-								console.log('getarea',vm.dormitorySlots[0].values)
+                vm.form.dormitory = '怡馨园'
+                vm.dormitorySlots[0].defaultIndex = 1
 							})
 						}
 					} else {
@@ -372,9 +367,6 @@
 					}
 				})
 			})
-		},
-		created () {
-			let _this = this
 		},
 		methods: {
 			getArea (code) {
@@ -409,8 +401,8 @@
 				})
 			},
 			handleSubmit () {
-			  if (!this.form.employeeID || !this.form.name || this.form.sex === undefined || !this.form.phone
-			   || !this.form.department || !this.form.entryDate || !this.form.birthDate
+			  if (!this.form.employeeID || !this.form.name || !this.form.phone //  || this.form.sex === undefined
+			   || !this.form.department || !this.form.entryDate // || !this.form.birthDate
 			    || !this.form.dormitory || !this.form.building || !this.form.unit || !this.form.floor || !this.form.house || !this.form.moveInDate) {
           MessageBox({
             title: '错误',
@@ -479,8 +471,8 @@
 					}
 				})
 				let params = {
-					age: this.form.age,
-					birthdate: this.form.birthDate,
+//					age: this.form.age,
+//					birthdate: this.form.birthDate,
 					building: buildingCode,
 					cardId: this.form.IDNumber,
 					checkDate: this.form.moveInDate,
@@ -490,7 +482,7 @@
 					employeeName: this.form.name,
 					employeeNumber: this.form.employeeID,
 					floor: floorCode,
-					gender: this.form.sex,
+//					gender: this.form.sex,
 					hiredate: this.form.entryDate,
 					id: '',
 					marriage: this.form.marriage,
@@ -500,7 +492,7 @@
 					room: houseCode,
 					unit: unitCode,
 					workingCouple: this.form.workingCouple,
-					workingYears: this.form.workingYears
+//					workingYears: this.form.workingYears
 				}
 				postUserInfo(params).then(res => {
 					console.log(res)
@@ -525,19 +517,19 @@
 			},
 			handleEntryDateConfirm (val) {
 				this.form.entryDate = this.dateFactor(val)
-				let now = (new Date()).getTime()
-				let workingDate = val.getTime()
-				this.form.workingYears = ((now - workingDate) / (1000 * 3600 * 24 * 365.25)).toFixed(1)
+//				let now = (new Date()).getTime()
+//				let workingDate = val.getTime()
+//				this.form.workingYears = ((now - workingDate) / (1000 * 3600 * 24 * 365.25)).toFixed(1)
 			},
-			handleClickBirthDate () {
-				this.$refs.birthDatePicker.open();
-			},
-			handleBirthDateConfirm (val) {
-				this.form.birthDate = this.dateFactor(val)
-				let now = (new Date()).getTime()
-				let birth = val.getTime()
-				this.form.age = parseInt((now - birth) / (1000 * 3600 * 24 * 365.25))
-			},
+//			handleClickBirthDate () {
+//				this.$refs.birthDatePicker.open();
+//			},
+//			handleBirthDateConfirm (val) {
+//				this.form.birthDate = this.dateFactor(val)
+//				let now = (new Date()).getTime()
+//				let birth = val.getTime()
+//				this.form.age = parseInt((now - birth) / (1000 * 3600 * 24 * 365.25))
+//			},
 			dateFactor (val) {
 			  let transformDate = new Date(val)
 				let month = transformDate.getMonth() + 1
@@ -565,6 +557,10 @@
           this.unitSlots[0].defaultIndex = 0
           this.floorSlots[0].defaultIndex = 0
           this.houseSlots[0].defaultIndex = 0
+
+          this.unitSlots[0].values = []
+          this.floorSlots[0].values = []
+          this.houseSlots[0].values = []
 					// 获取楼栋，清空后续信息
 					this.getArea(values[0].code).then(res => {
 						this.buildingSlots[0].values = res
@@ -583,6 +579,9 @@
           this.unitSlots[0].defaultIndex = 0
           this.floorSlots[0].defaultIndex = 0
           this.houseSlots[0].defaultIndex = 0
+
+          this.floorSlots[0].values = []
+          this.houseSlots[0].values = []
 					// 单元
 					this.getArea(values[0].code).then(res => {
 						this.unitSlots[0].values = res
@@ -599,6 +598,7 @@
           this.floorSlots[0].defaultIndex = 0
           this.form.house = ''
           this.houseSlots[0].defaultIndex = 0
+          this.houseSlots[0].values = []
 					// 楼层
 					this.getArea(values[0].code).then(res => {
 						this.floorSlots[0].values = res
