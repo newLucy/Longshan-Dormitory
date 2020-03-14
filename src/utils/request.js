@@ -7,7 +7,7 @@ Vue.prototype.$url = url
 const service = axios.create({
   baseURL: url,
   withCredentials: true,
-  timeout: 120000
+  timeout: 0
 })
 
 service.interceptors.request.use(
@@ -23,10 +23,7 @@ var t = null
 service.interceptors.response.use(
   response => {
   	let res = response.data
-//  let status = res.status
-//  if (status === 2000) {
       return res
-//  }
   }
 )
 export default service

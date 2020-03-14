@@ -81,17 +81,17 @@
 		  	date-format="{value} 日"
 		  	@confirm="handleMoveInDateConfirm">
 		</mt-datetime-picker>
-		<mt-field label="退宿时间" placeholder="请选择退宿时间" disableClear v-model="form.moveOutDate" readonly @click.native="handleClickMoveOutDate"></mt-field>
-		<mt-datetime-picker
-			ref="moveOutDatePicker"
-			v-model="moveOutDate"
-		  	type="date"
-		  	:startDate="new Date('1979-01-01')"
-		  	year-format="{value} 年"
-		  	month-format="{value} 月"
-		  	date-format="{value} 日"
-		  	@confirm="handleMoveOutDateConfirm">
-		</mt-datetime-picker>
+		<!--<mt-field label="退宿时间" placeholder="请选择退宿时间" disableClear v-model="form.moveOutDate" readonly @click.native="handleClickMoveOutDate"></mt-field>-->
+		<!--<mt-datetime-picker-->
+			<!--ref="moveOutDatePicker"-->
+			<!--v-model="moveOutDate"-->
+		  	<!--type="date"-->
+		  	<!--:startDate="new Date('1979-01-01')"-->
+		  	<!--year-format="{value} 年"-->
+		  	<!--month-format="{value} 月"-->
+		  	<!--date-format="{value} 日"-->
+		  	<!--@confirm="handleMoveOutDateConfirm">-->
+		<!--</mt-datetime-picker>-->
 		<div class="btnWrap"><mt-button type="primary" @click.native="handleSubmit">提交</mt-button></div>
 	</div>
 </template>
@@ -124,7 +124,7 @@
 					floor: '',
 					house: '',
 					moveInDate: '',
-					moveOutDate: ''
+//					moveOutDate: ''
 				},
 //				sexOptions: [{
 //					label: '男',
@@ -152,14 +152,14 @@
 		        entryDate: '',
 //		        birthDate: '',
 				moveInDate: '',
-				moveOutDate: '',
-		        yesNoOptions: [{
-		        	label: '是',
-		        	value: '1'
-		        }, {
-		        	label: '否',
-		        	value: '0'
-		        }],
+//				moveOutDate: '',
+        yesNoOptions: [{
+          label: '是',
+          value: '1'
+        }, {
+          label: '否',
+          value: '0'
+        }],
 				dormitorySlots: [{
 		          flex: 1,
 		          defaultIndex: 0,
@@ -341,9 +341,9 @@
 							vm.form.marriage = info.marriage ? info.marriage.toString() : ''
 							vm.form.phone = info.phoneNumber
 							vm.form.job = info.post
-							let retireTime = info.retirementTime
-							vm.form.moveOutDate = retireTime || ''
-							vm.moveOutDate = retireTime || ''
+//							let retireTime = info.retirementTime
+//							vm.form.moveOutDate = retireTime || ''
+//							vm.moveOutDate = retireTime || ''
 							vm.form.workingCouple = info.workingCouple ? info.workingCouple.toString() : ''
 //							vm.form.workingYears = info.workingYears
 							vm.form.dormitory = info.dormitory
@@ -488,7 +488,7 @@
 					marriage: this.form.marriage,
 					phoneNumber: this.form.phone,
 					post: this.form.job,
-					retirementTime: this.form.moveOutDate,
+//					retirementTime: this.form.moveOutDate,
 					room: houseCode,
 					unit: unitCode,
 					workingCouple: this.form.workingCouple,
@@ -633,12 +633,12 @@
 			handleMoveInDateConfirm (val) {
 				this.form.moveInDate = this.dateFactor(val)
 			},
-			handleClickMoveOutDate () {
-				this.$refs.moveOutDatePicker.open();
-			},
-			handleMoveOutDateConfirm (val) {
-				this.form.moveOutDate = this.dateFactor(val)
-			},
+//			handleClickMoveOutDate () {
+//				this.$refs.moveOutDatePicker.open();
+//			},
+//			handleMoveOutDateConfirm (val) {
+//				this.form.moveOutDate = this.dateFactor(val)
+//			},
 		}
 	})
 </script>

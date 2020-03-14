@@ -5,11 +5,20 @@ import App from './App'
 import router from './router'
 import 'styles/border.css'
 import 'styles/reset.css'
-import MintUI from 'mint-ui'
+import { Button, Cell, Field, Popup, Picker, DatetimePicker, Radio, Header } from 'mint-ui'
+// import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 // import Vconsole from 'vconsole'
 
-Vue.use(MintUI)
+Vue.component(Button.name, Button)
+Vue.component(Cell.name, Cell)
+Vue.component(Field.name, Field);
+Vue.component(Popup.name, Popup);
+Vue.component(Picker.name, Picker);
+Vue.component(DatetimePicker.name, DatetimePicker);
+Vue.component(Radio.name, Radio);
+Vue.component(Header.name, Header);
+// Vue.use(MintUI)
 // Vue.use(new Vconsole())
 
 Vue.config.productionTip = false
